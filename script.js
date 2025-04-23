@@ -1,51 +1,54 @@
-let partyInfo = {};
-let guestList = [];
+const partyForm = document.getElementById('partyForm');
+const guestForm = document.getElementById('guestForm');
 
-const partyForm = document.getElementById('party-form');
-const guestForm = document.getElementById('guest-form');
-const invitationSection = document.getElementById('invitation');
-const guestListSection = document.getElementById('guest-list-section');
+const inviteSection = document.getElementById('inviteSection');
+const registrationSection = document.getElementById('registrationSection');
+
+const displayDate = document.getElementById('displayDate');
+const displayDescription = document.getElementById('displayDescription');
+const displayMessage = document.getElementById('displayMessage');
+
+const guestList = document.getElementById('guestList');
+
+let guests = [];
 
 partyForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const date = document.getElementById('party-date').value;
-  const description = document.getElementById('party-description').value;
-  const message = document.getElementById('invite-message').value;
+  const partyDate = document.getElementById('partyDate').value;
+  const description = document.getElementById('partyDescription').value;
+  const message = document.getElementById('inviteMessage').value;
 
-  partyInfo = { date, description, message };
-  updateInviteView();
+  displayDate.textContent = `📅 Date: ${partyDate}`;
+  displayDescription.textContent = `📃 ${description}`;
+  displayMessage.textContent = message;
+
+  inviteSection.style.display = 'block';
+  registrationSection.style.display = 'block';
+
+  // Reset guest list
+  guests = [];
+  guestList.innerHTML = '';
 });
 
 guestForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const firstName = document.getElementById('guest-firstname').value.trim();
-  const lastName = document.getElementById('guest-lastname').value.trim();
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName = document.getElementById('lastName').value.trim();
 
   if (firstName && lastName) {
-    guestList.push({ firstName, lastName });
+    guests.push({ firstName, lastName });
     updateGuestList();
     guestForm.reset();
   }
 });
 
-function updateInviteView() {
-  document.getElementById('display-date').textContent = partyInfo.date;
-  document.getElementById('display-description').textContent = partyInfo.description;
-  document.getElementById('display-invite').textContent = partyInfo.message;
-
-  invitationSection.classList.remove('hidden');
-  guestListSection.classList.remove('hidden');
-}
-
 function updateGuestList() {
-  const list = document.getElementById('guest-list');
-  list.innerHTML = '';
-
-  guestList.forEach(guest => {
+  guestList.innerHTML = '';
+  guests.forEach((guest, index) => {
     const li = document.createElement('li');
     li.textContent = `${guest.firstName} ${guest.lastName}`;
-    list.appendChild(li);
+    guestList.appendChild(li);
   });
 }

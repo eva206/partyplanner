@@ -1,114 +1,81 @@
-/* Google Fonts: Poppins */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f8d9e9, #dce1ff);
+/* Reset */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
   }
   
-  .wrapper {
-    width: 100%;
-    max-width: 600px;
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffecd2 0%, #a59ffc 100%);
+    color: #333;
+    line-height: 1.6;
     padding: 2rem;
-    margin-top: 2rem;
   }
   
-  header {
+  .container {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1, h2 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    color: #d7263d;
   }
   
-  header h1 {
-    font-size: 2.5rem;
-    color: #ff5e9c;
-    margin-bottom: 0.5rem;
-  }
-  
-  header p {
-    font-weight: 300;
-    color: #555;
-  }
-  
-  .card {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(12px);
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
-    animation: fadeIn 0.6s ease;
-  }
-  
-  .card h2 {
-    margin-top: 0;
-    color: #333;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
   
   input[type="text"],
   input[type="date"],
   textarea {
-    width: 100%;
     padding: 0.75rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    border: none;
-    border-radius: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
     font-size: 1rem;
-    background: #f4f4f4;
-  }
-  
-  textarea {
-    resize: vertical;
-    min-height: 80px;
   }
   
   button {
-    background: #ff5e9c;
+    padding: 0.75rem;
+    background-color: #d7263d;
     color: white;
     border: none;
-    padding: 0.75rem 1.2rem;
-    border-radius: 10px;
+    border-radius: 6px;
     font-size: 1rem;
     cursor: pointer;
     transition: background 0.3s ease;
   }
   
   button:hover {
-    background: #e04d86;
+    background-color: #a61e2b;
   }
   
   blockquote {
     font-style: italic;
-    padding-left: 1rem;
-    border-left: 4px solid #ff9ac1;
-    color: #555;
-    margin-top: 1rem;
+    color: #444;
+    background: #ffe8e8;
+    padding: 1rem;
+    border-left: 5px solid #d7263d;
+    border-radius: 6px;
   }
   
-  #guest-list {
+  ul#guestList {
     list-style: none;
     padding: 0;
-    margin-top: 1rem;
   }
   
-  #guest-list li {
-    background: #ffe2f0;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  ul#guestList li {
+    background: #f9f9f9;
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+    border-radius: 4px;
   }
   
